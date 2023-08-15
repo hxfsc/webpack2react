@@ -1,3 +1,4 @@
+import Main from "./layout/main"
 export default () => {
-  return <div>HOME 222</div>
+  return <Main></Main>
 }
