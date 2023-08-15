@@ -9,7 +9,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const devMode = process.env.NODE_ENV !== "production"
 
 module.exports = {
-  entry: path.resolve(rootPath, "./src/index.js"),
+  entry: path.resolve(rootPath, "./src/index.tsx"),
   output: {
     filename: "[name].[contenthash].js",
     path: distFilePath,
@@ -17,8 +17,17 @@ module.exports = {
     publicPath: "/"
   },
 
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+
   module: {
     rules: [
+      {
+        test: /\.[t|j]sx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.s[ac]ss$/i,
         use: [
