@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react"
 import { AppstoreOutlined, BarChartOutlined, CloudOutlined, ShopOutlined, TeamOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons"
 import type { MenuProps } from "antd"
 import { Layout, Menu, theme } from "antd"
-
 const { Header, Content, Footer, Sider } = Layout
+
+import { Outlet } from "react-router-dom"
 
 import { fetchMenus } from "../api/menus"
 
 import styles from "./main.module.scss"
 
-import Dashboard from "../pages/dashboard"
 
 const App: React.FC = () => {
   const {
@@ -61,7 +61,7 @@ const App: React.FC = () => {
         <Header style={{ padding: 0, background: colorBgContainer }} />
         <Content style={{ margin: "24px 16px 0", minHeight: "calc(100vh - 170px)", overflow: "initial" }}>
           <div style={{ background: "#FFF", padding: "24px" }}>
-            <Dashboard />
+            <Outlet/>
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>Ant Design ©2023 Created by Ant UED</Footer>
